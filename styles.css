@@ -164,3 +164,36 @@ html {
         padding: 20px;
     }
 }
+
+/* Tornando o site responsivo */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Aumenta a largura para ocupar quase toda a tela */
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em; /* Reduz o tamanho do texto para caber melhor */
+    }
+
+    header h2 {
+        font-size: 1.5em;
+    }
+
+    .contact-info p {
+        font-size: 0.9em; /* Ajusta o tamanho da fonte para informações de contato */
+        text-align: center; /* Centraliza o texto para dispositivos menores */
+    }
+
+    .section h3 {
+        font-size: 1.3em; /* Reduz o tamanho dos títulos das seções */
+    }
+
+    .section p, .section ul {
+        font-size: 0.95em; /* Diminui o tamanho do texto para melhor leitura */
+    }
+
+    .language-bar {
+        height: 8px; /* Reduz a altura da barra de progresso */
+    }
+}
