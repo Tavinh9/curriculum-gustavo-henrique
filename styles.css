@@ -142,6 +142,33 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Barras de idiomas */
+.language-bar {
+    height: 10px;
+    background-color: #dcdde1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.language-bar .level-basic {
+    height: 100%;
+    width: 40%;
+    background-color: #3498db;
+}
+
+.language-bar .level-intermediate {
+    height: 100%;
+    width: 60%;
+    background-color: #2ecc71;
+}
+
+.language-bar .level-advanced {
+    height: 100%;
+    width: 80%;
+    background-color: #e67e22;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .name {
