@@ -201,3 +201,89 @@ html {
         margin-top: 20px; /* Ajusta o conteúdo para ficar mais próximo do topo */
     }
 }
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px; /* Limita a largura do currículo */
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+p, li {
+    font-size: 14px;
+    color: #555;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+/* Botão de download */
+.button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsividade para dispositivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+/* Estilos específicos para o PDF */
+@media print {
+    body {
+        background: none;
+        margin: 0;
+    }
+
+    .container {
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    h1, h2, h3 {
+        font-size: 16px;
+    }
+
+    p, li {
+        font-size: 12px;
+    }
+}
