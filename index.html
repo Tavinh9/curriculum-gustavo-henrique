@@ -28,12 +28,16 @@
                 <p>Rua Cinquenta, 500 - Bairro Tropical, Contagem - MG</p>
                 <p>Telefone: (31) 98912-9978</p>
                 <p>Email: gustavohenriquege9@gmail.com</p>
+                <p><strong>Idade:</strong> <span id="idade"></span> anos</p>
             </div>
         </header>
 
         <section id="resumo" class="section">
             <h3 style="font-size: 22px; color: #2c3e50;">Resumo</h3>
-            <p style="font-size: 14px; color: #555;">Estudante de Tecnologia da Informação com ótimas habilidades de comunicação verbal e escrita, facilitando a interação com colegas de equipe e clientes. Grande disposição para o desenvolvimento pessoal e profissional, que permite contribuir positivamente para o sucesso da empresa.</p>
+            <p style="font-size: 14px; color: #555;">
+                Estudante de Tecnologia da Informação com ótimas habilidades de comunicação verbal e escrita, facilitando a interação com colegas de equipe e clientes. 
+                Grande disposição para o desenvolvimento pessoal e profissional, que permite contribuir positivamente para o sucesso da empresa. <br>
+            </p>
         </section>
 
         <section id="habilidades" class="section">
@@ -55,7 +59,7 @@
             <p style="font-size: 14px; color: #555;"><strong>Cidade:</strong> Contagem</p>
             <p style="font-size: 14px; color: #555;"><strong>Qualificação:</strong> Ensino Médio integrado ao Técnico em Informática</p>
             <p style="font-size: 14px; color: #555;"><strong>Área de Estudo:</strong> Tecnologia da Informação</p>
-            <p style="font-size: 14px; color: #555;"><strong>Status:</strong> Cursando</p>
+            <p style="font-size: 14px; color: #555;"><strong>Status:</strong> Concluído</p>
             <p style="font-size: 14px; color: #555;"><strong>Início:</strong> Fevereiro de 2022</p>
             <p style="font-size: 14px; color: #555;"><strong>Conclusão:</strong> Dezembro de 2024</p>
         </section>
@@ -73,36 +77,39 @@
     </div>
 
     <script>
+        // Função para calcular a idade
+        function calcularIdade(dataNascimento) {
+            const hoje = new Date();
+            const nascimento = new Date(dataNascimento);
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
+            const mesAtual = hoje.getMonth();
+            const mesNascimento = nascimento.getMonth();
+
+            if (mesAtual < mesNascimento || (mesAtual === mesNascimento && hoje.getDate() < nascimento.getDate())) {
+                idade--;
+            }
+            return idade;
+        }
+
+        // Insere a idade calculada no HTML
+        document.getElementById('idade').textContent = calcularIdade('2006-08-01');
+
+        // Gerar PDF
         document.getElementById('download-pdf').addEventListener('click', function () {
-            // Esconde o nome com gradiente para o PDF
             var siteName = document.querySelector('h1');
-            siteName.style.display = 'none'; // Esconder o nome estilizado com gradiente para o PDF
+            siteName.style.display = 'none';
 
             var element = document.getElementById('content-to-pdf');
 
             var options = {
                 filename: 'Curriculo_Gustavo_Henrique.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    logging: true,
-                    letterRendering: true,
-                },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait',
-                    margins: { top: 10, left: 10, bottom: 10 }, // Ajuste de margens para que tudo caiba em uma página
-                    pageSize: 'A4', // Tamanho da página A4
-                    autoSize: true,
-                    fontSize: 12,
-                    lineHeight: 1.5,
-                }
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             html2pdf(element, options);
 
-            // Restaura o nome com gradiente após o PDF ser gerado
             siteName.style.display = 'block';
         });
     </script>
